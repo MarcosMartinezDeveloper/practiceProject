@@ -1,0 +1,29 @@
+package com.marcosmartinezdeveloper.practiceProject.persistence.entities.Utils;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.SuperBuilder;
+
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+@Data
+@NoArgsConstructor
+@SuperBuilder
+public class AuditableEntity extends AuditableDates{
+
+    @CreatedBy
+    @Column(nullable = false, updatable = false)
+    private Long createdBy;
+
+    @LastModifiedBy
+    @Column(nullable = false)
+    private Long updatedBy;
+
+}

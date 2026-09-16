@@ -1,4 +1,4 @@
-
+practice_projectpractice_projectpractice_projectpractice_project
 # PracticeProject
 
 ## View the project in the browser
@@ -18,9 +18,9 @@ sudo apt install apache2
 sudo apt install mysql-server
 
 sudo mysql
-	CREATE DATABASE practiceProject;
-	CREATE USER 'practice_user'@'localhost' IDENTIFIED BY 'tu_password';
-	GRANT ALL PRIVILEGES ON practiceProject.* TO 'practice_project'@'localhost';
+	CREATE DATABASE practice_project;
+	CREATE USER 'practice_user'@'localhost' IDENTIFIED BY 'abcD123.';
+	GRANT ALL PRIVILEGES ON practice_project.* TO 'practice_user'@'localhost';
 	FLUSH PRIVILEGES;
 exit
 ```
