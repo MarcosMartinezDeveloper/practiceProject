@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 import com.marcosmartinezdeveloper.practiceProject.persistence.entities.User;
 
 @Component
-public class AuditorAwareImpl implements AuditorAware<Long> {
+public class AuditorAwareImpl implements AuditorAware<String> {
 
     @Override
-    public Optional<Long> getCurrentAuditor() {
+    public Optional<String> getCurrentAuditor() {
 
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
@@ -28,6 +28,6 @@ public class AuditorAwareImpl implements AuditorAware<Long> {
 
         User user = (User) authentication.getPrincipal();
 
-        return Optional.of(user.getId());
+        return Optional.of(user.getUsername());
     }
 }

@@ -20,10 +20,10 @@ public class AuditableEntity extends AuditableDates{
 
     @CreatedBy
     @Column(nullable = false, updatable = false)
-    private Long createdBy;
+    private String createdBy;
 
     @LastModifiedBy
     @Column(nullable = false)
-    private Long updatedBy;
+    private String updatedBy;
 
 }

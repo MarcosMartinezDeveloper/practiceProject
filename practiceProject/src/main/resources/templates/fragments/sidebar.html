@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<aside th:fragment="sidebar" class="sidebar">
+		<nav>
+			<ul>
+				<li>
+					<img alt="practice_project" src="/pictures/practice_project.png" width="200">
+				</li>
+				<li><a th:href="@{/}">Home</a></li>
+				<li><a th:href="@{/users}">Users</a></li>
+				<li><a th:href="@{/products}">Products</a></li>
+			</ul>
+		</nav>
+	</aside>
+</body>
+</html>
