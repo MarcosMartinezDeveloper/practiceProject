@@ -45,6 +45,8 @@ public class User extends AuditableDates implements UserDetails{
     @EqualsAndHashCode.Exclude
     private String password;
 
+    private String email;
+    
     private String role;
 
 	@Override
@@ -71,5 +73,9 @@ public class User extends AuditableDates implements UserDetails{
 
 	public String getRole() {
 		return this.role;
+	}
+
+	public String getEmail() {
+		return this.email;
 	}
 }
