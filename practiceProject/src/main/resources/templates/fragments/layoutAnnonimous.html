@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Practice Project</title>
+	<link rel="icon" type="image/png" href="/pictures/favicon.png">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+	<div>
+
+		<div class="d-flex justify-content-center align-items-center vh-25">
+			<img alt="practice_project" class="mt-5 pt-5"
+					src="/pictures/practice_project.png" width="300"></img>
+		</div>
+
+		<main class="content">
+			<div layout:fragment="content">Content</div>
+		</main>
+
+	</div>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

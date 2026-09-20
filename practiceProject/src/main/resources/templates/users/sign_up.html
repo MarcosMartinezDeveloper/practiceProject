@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/layoutAnnonimous}">
+
+<head>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+
+		<div class="d-flex justify-content-center align-items-center vh-75">
+			<form th:action="@{/users/signUp}" method="post"
+				th:object="${signUpDTO}">
+				<div class="text-center">
+					<fieldset class="form-group border border-primary rounded p-3">
+						<legend>Sign up</legend>
+						<div class="mb-2 form-group">
+							<label for="username">Username</label>
+							<div th:if="${#fields.hasErrors('username')}"
+								th:errors="*{username}" class="alert alert-danger"></div>
+							<input type="text" class="form-control" name="username"
+								placeholder="Username" th:field="*{username}" />
+						</div>
+
+						<div class="mb-2 form-group">
+							<label for="password">Password</label>
+							<div th:if="${#fields.hasErrors('password')}"
+								th:errors="*{password}" class="alert alert-danger"></div>
+							<input type="password" class="form-control" name="password"
+								placeholder="Password" th:field="*{password}" />
+						</div>
+
+
+						<div class="mb-2 form-group">
+							<label for="confirmationPassword">Repeat Password</label>
+							<div th:if="${#fields.hasErrors('confirmationPassword')}"
+								th:errors="*{confirmationPassword}" class="alert alert-danger"></div>
+							<input type="password" class="form-control"
+								name="confirmationPassword" th:field="*{confirmationPassword}"
+								placeholder="Password" />
+						</div>
+
+						<div class="mb-2 form-group">
+							<label for="email">Email</label>
+							<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+								class="alert alert-danger"></div>
+							<input type="email" class="form-control" name="email"
+								th:field="*{email}" placeholder="Email" />
+						</div>
+
+						<button type="submit" class="btn btn-primary mx-2">Sign
+							up</button>
+					</fieldset>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
