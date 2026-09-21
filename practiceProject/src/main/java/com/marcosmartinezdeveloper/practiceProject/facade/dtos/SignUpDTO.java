@@ -1,6 +1,6 @@
 package com.marcosmartinezdeveloper.practiceProject.facade.dtos;
 
-import com.marcosmartinezdeveloper.practiceProject.controllers.validators.projectAnnotations.PasswordsMatch;
+import com.marcosmartinezdeveloper.practiceProject.controllers.validators.projectAnnotations.SignUpValid;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@PasswordsMatch
+@SignUpValid
 @Getter
 @Setter
 @ToString

@@ -10,7 +10,8 @@ CREATE TABLE users (
     updated_at DATETIME NOT NULL,
 
     PRIMARY KEY (id),
-    UNIQUE KEY uk_users_username (username)
+    UNIQUE KEY uk_users_username (username),
+    UNIQUE KEY uk_users_email (email)
 );
 
 Commit;

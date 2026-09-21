@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.marcosmartinezdeveloper.practiceProject.persistence.entities.Utils.AuditableDates;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -39,12 +40,14 @@ public class User extends AuditableDates implements UserDetails{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+	@Column(unique = true)
     private String username;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private String password;
 
+    @Column(unique = true)
     private String email;
     
     private String role;
