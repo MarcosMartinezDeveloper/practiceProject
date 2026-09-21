@@ -7,13 +7,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.SuperBuilder;
+import lombok.ToString;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@Data
+@ToString
+@Getter
+@Setter
 @NoArgsConstructor
 @SuperBuilder
 public class AuditableEntity extends AuditableDates{

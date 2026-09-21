@@ -1,6 +1,5 @@
 package com.marcosmartinezdeveloper.practiceProject.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,18 +23,17 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 @Controller
 @RequestMapping("/users")
 public class UserController {
 	
-	@Autowired
 	private UserService userService;
 	
-	@Autowired
 	private JwtService jwtService;
     
-	@Autowired
 	private AuthenticationManager authenticationManager;
 
 	@GetMapping("/login")
@@ -87,7 +85,7 @@ public class UserController {
 	    }
 	    userService.save(signUpDTO);
 	    
-	    return null;
+	    return "redirect:/users/login";
     }
 
 

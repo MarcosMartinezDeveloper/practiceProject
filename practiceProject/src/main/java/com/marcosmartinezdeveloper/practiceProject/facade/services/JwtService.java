@@ -25,7 +25,8 @@ public class JwtService {
         return createToken(claims, username);
     }
 
-    private String createToken(Map<String, Object> claims, String username) {
+    @SuppressWarnings("deprecation")
+	private String createToken(Map<String, Object> claims, String username) {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(username)
@@ -53,7 +54,8 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    private Claims extractAllClaims(String token) {
+    @SuppressWarnings("deprecation")
+	private Claims extractAllClaims(String token) {
         
         return Jwts.parser()
               .setSigningKey(getSignKey())
