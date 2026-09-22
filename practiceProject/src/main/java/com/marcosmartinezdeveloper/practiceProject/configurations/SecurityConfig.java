@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandlerImpl;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.marcosmartinezdeveloper.practiceProject.facade.services.UserService;
@@ -40,7 +42,9 @@ public class SecurityConfig {
                         "/users/login",
                         "/users/signUp"
                 		)
-                .permitAll()
+                .permitAll()                
+                .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers("/products/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_CUSTOMER")
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
@@ -49,6 +53,14 @@ public class SecurityConfig {
                 .defaultSuccessUrl("/", true)
                 .permitAll()
             )
+			.exceptionHandling(exception -> exception
+
+				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/users/login"))
+				.accessDeniedHandler(new AccessDeniedHandlerImpl() {
+					{
+						setErrorPage("/");
+					}
+			}))
 
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authenticationProvider(authenticationProvider())
