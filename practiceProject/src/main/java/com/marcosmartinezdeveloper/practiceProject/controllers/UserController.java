@@ -43,7 +43,7 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String postLogin(@Valid @ModelAttribute LoginDTO loginDTO, BindingResult result,
+	public String postLogin(@ModelAttribute LoginDTO loginDTO, BindingResult result,
 	        HttpServletRequest request,
 	        HttpServletResponse response) {
 		boolean correctCredentials = userService.logIn(loginDTO);

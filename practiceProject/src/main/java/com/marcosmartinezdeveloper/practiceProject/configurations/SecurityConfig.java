@@ -32,8 +32,11 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
+    	
         http
+//    	For creating an API REST
+//        It is strongly unrecommended for applications with Thymeleaf
+        .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                         "/css/**",
@@ -42,7 +45,8 @@ public class SecurityConfig {
                         "/users/login",
                         "/users/signUp"
                 		)
-                .permitAll()                
+                .permitAll()
+                .requestMatchers("/rest-users/**").permitAll()         
                 .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers("/products/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_CUSTOMER")
                 .anyRequest().authenticated()
