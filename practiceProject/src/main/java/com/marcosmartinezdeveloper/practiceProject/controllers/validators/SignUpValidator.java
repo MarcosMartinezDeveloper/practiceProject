@@ -1,14 +1,9 @@
 package com.marcosmartinezdeveloper.practiceProject.controllers.validators;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.util.StringUtils;
 
 import com.marcosmartinezdeveloper.practiceProject.controllers.validators.projectAnnotations.SignUpValid;
 import com.marcosmartinezdeveloper.practiceProject.facade.dtos.SignUpDTO;
-import com.marcosmartinezdeveloper.practiceProject.persistence.entities.User;
 import com.marcosmartinezdeveloper.practiceProject.persistence.repositories.UserRepository;
 
 import jakarta.validation.ConstraintValidator;
